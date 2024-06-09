@@ -9,7 +9,7 @@ import { forkIcon, licenseIcon, starIcon, tagIcon } from './icons.ts';
 import { pendingElement } from './pendingElement.ts';
 
 const languageColorElement = function (language: string): TemplateResult {
-  const colorCode = (languageColors)[language]?.color ?? '#808080';
+  const colorCode = languageColors[language]?.color ?? '#808080';
   const color = unsafeCSS(colorCode);
 
   return html`<span style="display: inline-block; width: 0.9em; height: 0.9em; vertical-align: middle; border-radius: 50%; background-color: ${color};"></span>`;
