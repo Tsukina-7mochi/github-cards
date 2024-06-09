@@ -145,7 +145,7 @@ export class RepositoryCard extends LitElement {
         const forks = html`<div id="forks">${forkIcon} ${repo.forks_count}</div>`;
         const license = repo.license ? html`<div id="license">${licenseIcon} ${repo.license.name}</div>` : null;
         const topicSpans = (repo.topics ?? []).map((v) => html`<span>${v}</span>`);
-        const topics = html`<div id="topics">${tagIcon} ${topicSpans}</div>`;
+        const topics = topicSpans.length > 0 ? html`<div id="topics">${tagIcon} ${topicSpans}</div>` : null;
 
         // TODO: replace emojis in description
 
