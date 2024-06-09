@@ -9,17 +9,19 @@ TODO: add link to demonstration page
 
 ## Usage
 
-Import script via CDN:
+You can import script from CDN `esm.sh`. Put `<script>` tag with `type="module"`:
 
 ```typescript
-// TODO: add cdn import code
+<script type="module" async src="https://esm.sh/@tsukina-7mochi/github-cards"></script>
 ```
 
-Then you can use custom component on your website.
+then you can use custom component on your website:
 
 ```html
 <gh-repo-card name="Tsukina-7mochi/github-cards></gh-repo-card>
 ```
+
+See more example in `example` directory.
 
 ## API
 
