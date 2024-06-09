@@ -772,6 +772,7 @@
     "https://deno.land/x/esbuild_cache_plugin@v1.3.1/src/pluginUtil.ts": "c0b3321ac2372b8d7c3f6ad40bb63e3abd9acabfbda8d79dbf0ab641991361a8",
     "https://deno.land/x/esbuild_cache_plugin@v1.3.1/src/types.ts": "9c16efaf72b8e4e84310c5d5aa2ddfc80153f75cc24a12f0f00587921b347bcd",
     "https://deno.land/x/esbuild_cache_plugin@v1.3.1/src/util.ts": "9b748fc4f97f1c9a4f685cd6e7ceae211184c650ccf91d6ad82f77926364483a",
-    "https://deno.land/x/esbuild_cache_plugin@v1.3.1/src/warningsHandler.ts": "30d005be1733a07115756ff11bcedc1eda467862a4374ec3c2364a474b47d924"
+    "https://deno.land/x/esbuild_cache_plugin@v1.3.1/src/warningsHandler.ts": "30d005be1733a07115756ff11bcedc1eda467862a4374ec3c2364a474b47d924",
+    "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json": "a4cb56a1d3dc9ee3326211e2fe1d919b3d9e4df397a8ce53117f96738bbef2ee"
   }
 }
