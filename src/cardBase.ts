@@ -20,11 +20,11 @@ export class CardBase extends LitElement {
       line-height: 1.5;
     }
 
-    article.interactable:hover {
+    article.intractable:hover {
       background-color: var(--c-bg-hover);
     }
 
-    article.interactable:active {
+    article.intractable:active {
       background-color: var(--c-bg-active);
     }
 
@@ -34,10 +34,10 @@ export class CardBase extends LitElement {
   `;
 
   @property({ type: Boolean })
-  accessor interactable = false;
+  accessor intractable = false;
 
   render() {
-    const className = this.interactable ? 'interactable' : null;
+    const className = this.intractable ? 'intractable' : null;
     return html`<article class="${className}"><slot></slot></article>`;
   }
 }
