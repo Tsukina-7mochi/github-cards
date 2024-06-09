@@ -22,13 +22,9 @@ const { options } = await new Command()
 const buildOptions = (dev = false, watch = false): esbuild.BuildOptions => ({
   entryPoints: [
     { in: path.join(srcPath, 'mod.ts'), out: 'ghCards' },
-    { in: path.join(examplePath, 'index.html'), out: 'index' },
   ],
   bundle: true,
   outdir: destPath,
-  loader: {
-    '.html': 'copy',
-  },
   platform: 'browser',
   plugins: [
     esbuildCachePlugin({
