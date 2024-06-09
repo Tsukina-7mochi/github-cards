@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Cards Example</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+
+  <script src="./ghCards.js"></script>
+  <style>
+    main {
+      line-height: 1.5;
+      margin: 0 auto;
+      max-width: 40em;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+    }
+
+    gh-repo-card {
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>GitHub Cards Example</h1>
+
+    <h2>Repository Cards</h2>
+
+    <p>
+      Standard
+      <gh-repo-card name="Tsukina-7mochi/github-cards"></gh-repo-card>
+    </p>
+
+    <p>
+      No avatar
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-avatar></gh-repo-card>
+    </p>
+
+    <p>
+      No description
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-description></gh-repo-card>
+    </p>
+
+    <p>
+      No stars
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-stars></gh-repo-card>
+    </p>
+
+    <p>
+      No forks
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-forks></gh-repo-card>
+    </p>
+
+    <p>
+      No license
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-license></gh-repo-card>
+    </p>
+
+    <p>
+      No language
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-language></gh-repo-card>
+    </p>
+
+    <p>
+      No topics
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-topics></gh-repo-card>
+    </p>
+
+    <p>
+      No stars, forks, license, language and topics (smart)
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-stars no-forks no-license no-language no-topics></gh-repo-card>
+    </p>
+
+    <p>
+      No avatar and topics (simple)
+      <gh-repo-card name="Tsukina-7mochi/github-cards" no-avatar no-topics></gh-repo-card>
+    </p>
+  </main>
+</body>
+</html>
