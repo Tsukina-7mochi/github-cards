@@ -5,7 +5,11 @@ repositories.
 
 ## Demo
 
-TODO: add link to demonstration page
+![repository card (light)](./docs/repo-card-light.png)
+
+![repository card (dark)](./docs/repo-card-dark.png)
+
+You can open demonstration page: https://tsukina-7mochi.github.io/github-cards/
 
 ## Usage
 
