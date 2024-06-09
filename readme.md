@@ -21,7 +21,7 @@ then you can use custom component on your website:
 <gh-repo-card name="Tsukina-7mochi/github-cards></gh-repo-card>
 ```
 
-See more example in `example` directory.
+See more example in `docs` directory.
 
 ## API
 
