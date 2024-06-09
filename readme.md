@@ -25,6 +25,8 @@ Check out this live demo to see GitHub Repo Cards in action:
 https://tsukina-7mochi.github.io/github-cards/
 
 ## Usage
+
+### via CDN
  
 You can import script from CDN `esm.sh`. Add the following `<script>` tag to your HTML document to load library:
 
@@ -39,6 +41,16 @@ Use the `<gh-repo-card>` custom element wherever you want to display a GitHub re
 ```
 
 See `docs` directory for demonstration page implementation.
+
+### via npm
+
+You can simply import this library instead of loading from CDN:
+
+```typescript
+require('@tsukina-7mochi/github-cards`);
+// or
+import '@tsukina-7mochi/github-cards`;
+```
 
 ## API
 
