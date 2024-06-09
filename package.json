@@ -1,6 +1,6 @@
 {
   "name": "@tsukina-7mochi/github-cards",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Web Components implementation of cards for GitHub repositories",
   "main": "dist/ghCards.js",
   "directories": {
