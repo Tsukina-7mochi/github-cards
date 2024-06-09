@@ -51,6 +51,7 @@ export class RepositoryCard extends LitElement {
       text-decoration: none;
       color: var(--c-fg);
       line-height: 1.5;
+      text-indent: 0;
     }
 
     h2 {
