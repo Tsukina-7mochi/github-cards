@@ -21,6 +21,17 @@
     gh-repo-card {
       font-size: 0.8em;
     }
+
+    p.dark {
+      background-color: #404040;
+      color: #ffffff;
+      padding: 1em;
+      --gh-card-color-border: #808080;
+      --gh-card-color-background-hover: rgb(255, 255, 255 / 3%);
+      --gh-card-color-background-active: rgb(255, 255, 255 / 5%);
+      --gh-card-color-fg: #ffffff;
+      --gh-card-color-fg-2: #a0a0a0;
+    }
   </style>
 </head>
 <body>
@@ -77,6 +88,11 @@
     <p>
       No avatar and topics (simple)
       <gh-repo-card name="Tsukina-7mochi/github-cards" no-avatar no-topics></gh-repo-card>
+    </p>
+    
+    <p class="dark">
+      Dark mode
+      <gh-repo-card name="Tsukina-7mochi/github-cards"></gh-repo-card>
     </p>
   </main>
 </body>
