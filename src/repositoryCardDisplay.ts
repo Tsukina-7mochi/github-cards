@@ -50,7 +50,7 @@ export class RepositoryCardDisplay extends LitElement {
       color: #646cff;
     }
 
-    a#wrapper {
+    a.wrapper {
       display: flex;
       flex-direction: column;
       gap: 0.35em;
@@ -59,6 +59,7 @@ export class RepositoryCardDisplay extends LitElement {
       color: var(--c-fg);
       line-height: 1.5;
       text-indent: 0;
+      overflow: hidden;
     }
 
     h2 {
@@ -79,21 +80,22 @@ export class RepositoryCardDisplay extends LitElement {
       gap: 1em;
     }
 
-    #avatar {
+    img.avatar {
       height: 3.5em;
       border-radius: 4px;
     }
 
-    #description {
+    p.description {
       margin: 0;
+      overflow-wrap: anywhere;
     }
 
-    #source {
+    div.source {
       font-size: 0.9em;
       color: var(--c-fg-2);
     }
 
-    #topics > span {
+    div.topics > span {
       margin-right: 0.5em;
     }
   `;
@@ -141,18 +143,18 @@ export class RepositoryCardDisplay extends LitElement {
 
   render() {
     const avatar = this.avatarUrl !== null
-      ? html`<img id="avatar" src="${this.avatarUrl}" alt="${this.owner}">`
+      ? html`<img class="avatar" src="${this.avatarUrl}" alt="${this.owner}">`
       : nothing;
     const forkSource = this.forkSource !== null
-      ? html`<div id="source">fork from <a href="${this.forkSource.html_url}">${this.forkSource.full_name}</a></div>`
+      ? html`<div class="source">fork from <a href="${this.forkSource.html_url}">${this.forkSource.full_name}</a></div>`
       : nothing;
-    const description = this.description !== null ? html`<p id="description">${this.description}</p>` : nothing;
+    const description = this.description !== null ? html`<p class="description">${this.description}</p>` : nothing;
     const language = this.language !== null
-      ? html`<div id="language">${languageColorElement(this.language)} ${this.language}</div>`
+      ? html`<div class="language">${languageColorElement(this.language)} ${this.language}</div>`
       : nothing;
-    const stars = this.stars !== null ? html`<div id="stars">${starIcon} ${this.stars}</div>` : nothing;
-    const forks = this.forks !== null ? html`<div id="forks">${forkIcon} ${this.forks}</div>` : nothing;
-    const license = this.license !== null ? html`<div id="license">${licenseIcon} ${this.license}</div>` : nothing;
+    const stars = this.stars !== null ? html`<div class="stars">${starIcon} ${this.stars}</div>` : nothing;
+    const forks = this.forks !== null ? html`<div class="forks">${forkIcon} ${this.forks}</div>` : nothing;
+    const license = this.license !== null ? html`<div class="license">${licenseIcon} ${this.license}</div>` : nothing;
     const topicSpans = html`${map(this.topics, (topic) => html`<span>${topic}</span>`)}`;
     const topicIcon = this.topics.length > 0 ? tagIcon : nothing;
 
@@ -160,7 +162,7 @@ export class RepositoryCardDisplay extends LitElement {
 
     return html`
       <gh-card-base intractable>
-        <a id="wrapper" href="${this.url}">
+        <a class="wrapper" href="${this.url}">
           <header>
             ${avatar}
             <div>
@@ -175,7 +177,7 @@ export class RepositoryCardDisplay extends LitElement {
             ${forks}
             ${license}
           </div>
-          <div id="topics">
+          <div class="topics">
             ${topicIcon}
             ${topicSpans}
           </div>
