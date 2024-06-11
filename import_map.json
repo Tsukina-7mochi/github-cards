@@ -6,9 +6,10 @@
     "esbuild": "https://deno.land/x/esbuild@v0.21.4/mod.js",
     "esbuild-plugin-cache": "https://deno.land/x/esbuild_cache_plugin@v1.3.1/mod.ts",
     "github-colors": "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json",
-    "lit": "npm:lit@3.1.4",
-    "lit/decorators.js": "npm:lit@3.1.4/decorators.js",
-    "lit/task": "npm:@lit/task@1.0.1",
+    "lit": "npm:/lit@3.1.4",
+    "lit/": "npm:/lit@3.1.4/",
+    "lit/decorators.js": "npm:/lit@3.1.4/decorators.js",
+    "lit/task": "npm:/@lit/task@1.0.1",
     "std/": "https://deno.land/std@0.221.0/"
   }
 }
