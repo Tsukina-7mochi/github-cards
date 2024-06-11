@@ -59,6 +59,7 @@ export class RepositoryCardDisplay extends LitElement {
       color: var(--c-fg);
       line-height: 1.5;
       text-indent: 0;
+      overflow: hidden;
     }
 
     h2 {
