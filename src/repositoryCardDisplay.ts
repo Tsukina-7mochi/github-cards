@@ -86,6 +86,7 @@ export class RepositoryCardDisplay extends LitElement {
 
     #description {
       margin: 0;
+      overflow-wrap: anywhere;
     }
 
     #source {
