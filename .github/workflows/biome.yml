@@ -12,18 +12,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23.x
-          cache: 'pnpm'
-
-      - name: install dependencies
-        run: |
-          pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-pnpm
 
       - name: check
         run: pnpm check
@@ -37,18 +26,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 23.x
-          cache: 'pnpm'
-
-      - name: install dependencies
-        run: |
-          pnpm install --frozen-lockfile
+      - uses: ./.github/actions/setup-pnpm
 
       - name: check
         run: pnpm build
