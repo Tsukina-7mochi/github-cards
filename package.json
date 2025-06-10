@@ -12,10 +12,7 @@
   "bugs": {
     "url": "https://github.com/Tsukina-7mochi/github-cards/issues"
   },
-  "keywords": [
-    "github",
-    "cards"
-  ],
+  "keywords": ["github", "cards"],
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc && vite build",
