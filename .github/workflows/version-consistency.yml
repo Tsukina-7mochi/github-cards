@@ -1,0 +1,31 @@
+name: Check Version Consistency
+
+on: push
+
+jobs:
+  check-version-consistency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract package.json version
+        id: package-version
+        run: |
+          VERSION="$(cat package.json | jq -r '.version')"
+          echo "version(package.json): $VERSION"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Extract jsr.json version
+        id: jsr-version
+        run: |
+          VERSION="$(cat jsr.json | jq -r '.version')"
+          echo "version(jsr.json): $VERSION"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Fail if version mismatch
+        if: steps.package-version.outputs.version != steps.jsr-version.outputs.version
+        run: |
+          echo -e "Version mismatch.\npackage.json: ${{ steps.package-version.outputs.version }}\njsr.json: ${{ steps.jsr-version.outputs.version }}"
+          exit 1
