@@ -2,23 +2,36 @@
   "name": "@tsukina-7mochi/github-cards",
   "version": "0.2.2",
   "description": "Web Components implementation of cards for GitHub repositories",
-  "main": "dist/ghCards.js",
-  "directories": {
-    "example": "example"
-  },
-  "scripts": {},
+  "author": "Mooncake Sugar",
+  "license": "MIT",
+  "homepage": "https://github.com/Tsukina-7mochi/github-cards#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tsukina-7mochi/github-cards.git"
   },
-  "keywords": [
-    "github",
-    "cards"
-  ],
-  "author": "Mooncake Sugar",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Tsukina-7mochi/github-cards/issues"
   },
-  "homepage": "https://github.com/Tsukina-7mochi/github-cards#readme"
+  "keywords": ["github", "cards"],
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "check": "biome check",
+    "check-write": "biome check --write",
+    "dev": "vite",
+    "preinstall": "npx only-allow pnpm",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lit/task": "^1.0.2",
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "packageManager": "pnpm@10.11.0"
 }
