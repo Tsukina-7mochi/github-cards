@@ -1,3 +1,3 @@
-import './cardBase.ts';
-import './repositoryCard.ts';
-import './repositoryCardDisplay.ts';
+import "./cardBase.ts";
+import "./repositoryCard.ts";
+import "./repositoryCardDisplay.ts";

@@ -13,7 +13,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    tsconfigPaths(),
-  ],
+  plugins: [tsconfigPaths()],
 });

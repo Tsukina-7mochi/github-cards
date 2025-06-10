@@ -4,11 +4,11 @@
   "description": "Web Components implementation of cards for GitHub repositories",
   "main": "dist/ghCards.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "build": "tsc && vite build",
     "check": "biome check",
     "check-write": "biome check --write",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "preinstall": "npx only-allow pnpm",
     "preview": "vite preview"
   },
   "repository": {

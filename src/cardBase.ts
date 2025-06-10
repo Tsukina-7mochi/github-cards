@@ -1,7 +1,7 @@
-import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-@customElement('gh-card-base')
+@customElement("gh-card-base")
 export class CardBase extends LitElement {
   static styles = css`
     :host {
@@ -37,7 +37,7 @@ export class CardBase extends LitElement {
   accessor intractable = false;
 
   render() {
-    const className = this.intractable ? 'intractable' : null;
+    const className = this.intractable ? "intractable" : null;
     return html`<article class="${className}"><slot></slot></article>`;
   }
 }

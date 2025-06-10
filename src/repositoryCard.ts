@@ -1,41 +1,41 @@
-import { html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { Task } from '@lit/task';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { Task } from "@lit/task";
+import { LitElement, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 
-import { errorElement } from './errorElement.ts';
-import { getRepository } from './lib/ghApi.ts';
-import { pendingElement } from './pendingElement.ts';
+import { errorElement } from "./errorElement.ts";
+import { getRepository } from "./lib/ghApi.ts";
+import { pendingElement } from "./pendingElement.ts";
 
-@customElement('gh-repo-card')
+@customElement("gh-repo-card")
 export class RepositoryCard extends LitElement {
   @property()
-  accessor name = '';
+  accessor name = "";
 
-  @property({ attribute: 'no-avatar', type: Boolean })
+  @property({ attribute: "no-avatar", type: Boolean })
   accessor noAvatar = false;
 
-  @property({ attribute: 'no-description', type: Boolean })
+  @property({ attribute: "no-description", type: Boolean })
   accessor noDescription = false;
 
-  @property({ attribute: 'no-stars', type: Boolean })
+  @property({ attribute: "no-stars", type: Boolean })
   accessor noStars = false;
 
-  @property({ attribute: 'no-forks', type: Boolean })
+  @property({ attribute: "no-forks", type: Boolean })
   accessor noForks = false;
 
-  @property({ attribute: 'no-license', type: Boolean })
+  @property({ attribute: "no-license", type: Boolean })
   accessor noLicense = false;
 
-  @property({ attribute: 'no-language', type: Boolean })
+  @property({ attribute: "no-language", type: Boolean })
   accessor noLanguage = false;
 
-  @property({ attribute: 'no-topics', type: Boolean })
+  @property({ attribute: "no-topics", type: Boolean })
   accessor noTopics = false;
 
   _fetchTask = new Task(this, {
     task: ([name], { signal }) => {
-      if (typeof name !== 'string') {
+      if (typeof name !== "string") {
         return null;
       }
 
@@ -73,7 +73,7 @@ export class RepositoryCard extends LitElement {
             forks="${ifDefined(forks)}"
             license="${ifDefined(license)}"
             language="${ifDefined(language)}"
-            topics="${topics.join(' ')}"
+            topics="${topics.join(" ")}"
           ></gh-repo-card-display>
         `;
       },

@@ -1,11 +1,18 @@
-import { css, html, LitElement, nothing, type TemplateResult, unsafeCSS } from 'lit';
-import { map } from 'lit/directives/map.js';
-import { customElement, property } from 'lit/decorators.js';
-import languageColors from './colors.json' with { type: 'json' };
+import {
+  LitElement,
+  type TemplateResult,
+  css,
+  html,
+  nothing,
+  unsafeCSS,
+} from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { map } from "lit/directives/map.js";
+import languageColors from "./colors.json" with { type: "json" };
 
-import { forkIcon, licenseIcon, starIcon, tagIcon } from './icons.ts';
+import { forkIcon, licenseIcon, starIcon, tagIcon } from "./icons.ts";
 
-const arrayEquals = function(oldVar: string[], newVar: string[]) {
+const arrayEquals = function (oldVar: string[], newVar: string[]) {
   if (!(Array.isArray(oldVar) && Array.isArray(newVar))) return false;
   if (oldVar.length !== newVar.length) return false;
 
@@ -15,14 +22,15 @@ const arrayEquals = function(oldVar: string[], newVar: string[]) {
   return true;
 };
 
-const languageColorElement = function(language: string): TemplateResult {
-  const colorCode = languageColors[language as keyof typeof languageColors]?.color ?? '#808080';
+const languageColorElement = function (language: string): TemplateResult {
+  const colorCode =
+    languageColors[language as keyof typeof languageColors]?.color ?? "#808080";
   const color = unsafeCSS(colorCode);
 
   return html`<span style="display: inline-block; width: 0.9em; height: 0.9em; vertical-align: middle; border-radius: 50%; background-color: ${color};"></span>`;
 };
 
-@customElement('gh-repo-card-display')
+@customElement("gh-repo-card-display")
 export class RepositoryCardDisplay extends LitElement {
   static styles = css`
     :host {
@@ -101,18 +109,18 @@ export class RepositoryCardDisplay extends LitElement {
   `;
 
   @property({ type: String })
-  accessor name: string = '';
+  accessor name = "";
 
   @property({ type: String })
-  accessor url: string = '';
+  accessor url = "";
 
   @property({ type: String })
-  accessor owner: string = '';
+  accessor owner = "";
 
-  @property({ type: String, attribute: 'avatar-url' })
+  @property({ type: String, attribute: "avatar-url" })
   accessor avatarUrl: string | null = null;
 
-  @property({ type: Object, attribute: 'fork-source' })
+  @property({ type: Object, attribute: "fork-source" })
   accessor forkSource: { html_url: string; full_name: string } | null = null;
 
   @property({ type: String })
@@ -132,29 +140,47 @@ export class RepositoryCardDisplay extends LitElement {
 
   @property({
     converter(value) {
-      if (typeof value !== 'string') {
+      if (typeof value !== "string") {
         return null;
       }
-      return value.trim().split(' ').filter((v) => v.length > 0);
+      return value
+        .trim()
+        .split(" ")
+        .filter((v) => v.length > 0);
     },
     hasChanged: arrayEquals,
   })
   accessor topics: string[] = [];
 
   render() {
-    const avatar = this.avatarUrl !== null
-      ? html`<img class="avatar" src="${this.avatarUrl}" alt="${this.owner}">`
-      : nothing;
-    const forkSource = this.forkSource !== null
-      ? html`<div class="source">fork from <a href="${this.forkSource.html_url}">${this.forkSource.full_name}</a></div>`
-      : nothing;
-    const description = this.description !== null ? html`<p class="description">${this.description}</p>` : nothing;
-    const language = this.language !== null
-      ? html`<div class="language">${languageColorElement(this.language)} ${this.language}</div>`
-      : nothing;
-    const stars = this.stars !== null ? html`<div class="stars">${starIcon} ${this.stars}</div>` : nothing;
-    const forks = this.forks !== null ? html`<div class="forks">${forkIcon} ${this.forks}</div>` : nothing;
-    const license = this.license !== null ? html`<div class="license">${licenseIcon} ${this.license}</div>` : nothing;
+    const avatar =
+      this.avatarUrl !== null
+        ? html`<img class="avatar" src="${this.avatarUrl}" alt="${this.owner}">`
+        : nothing;
+    const forkSource =
+      this.forkSource !== null
+        ? html`<div class="source">fork from <a href="${this.forkSource.html_url}">${this.forkSource.full_name}</a></div>`
+        : nothing;
+    const description =
+      this.description !== null
+        ? html`<p class="description">${this.description}</p>`
+        : nothing;
+    const language =
+      this.language !== null
+        ? html`<div class="language">${languageColorElement(this.language)} ${this.language}</div>`
+        : nothing;
+    const stars =
+      this.stars !== null
+        ? html`<div class="stars">${starIcon} ${this.stars}</div>`
+        : nothing;
+    const forks =
+      this.forks !== null
+        ? html`<div class="forks">${forkIcon} ${this.forks}</div>`
+        : nothing;
+    const license =
+      this.license !== null
+        ? html`<div class="license">${licenseIcon} ${this.license}</div>`
+        : nothing;
     const topicSpans = html`${map(this.topics, (topic) => html`<span>${topic}</span>`)}`;
     const topicIcon = this.topics.length > 0 ? tagIcon : nothing;
 

@@ -1,4 +1,4 @@
-import { cachedFetch } from './cachedFetch.ts';
+import { cachedFetch } from "./cachedFetch.ts";
 
 export type GitHubEmojis = Record<string, string>;
 
@@ -24,21 +24,25 @@ export type GitHubRepository = {
   };
 };
 
-export const getEmojis = async function (signal: AbortSignal): Promise<GitHubEmojis> {
-  const res = await cachedFetch('https://api.github.com/emojis', { signal });
+export const getEmojis = async function (
+  signal: AbortSignal
+): Promise<GitHubEmojis> {
+  const res = await cachedFetch("https://api.github.com/emojis", { signal });
   if (!res.ok) {
-    throw Error('Failed to get GitHub emojis');
+    throw Error("Failed to get GitHub emojis");
   }
-  return await res.json() as GitHubEmojis;
+  return (await res.json()) as GitHubEmojis;
 };
 
 export const getRepository = async function (
   name: string,
-  signal: AbortSignal,
+  signal: AbortSignal
 ): Promise<GitHubRepository> {
-  const res = await cachedFetch(`https://api.github.com/repos/${name}`, { signal });
+  const res = await cachedFetch(`https://api.github.com/repos/${name}`, {
+    signal,
+  });
   if (!res.ok) {
     throw Error(`Failed to fetch repository data: ${res.status}`);
   }
-  return await res.json() as GitHubRepository;
+  return (await res.json()) as GitHubRepository;
 };
