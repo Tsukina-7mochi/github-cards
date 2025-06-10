@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { Task } from 'lit/task';
+import { Task } from '@lit/task';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { errorElement } from './errorElement.ts';

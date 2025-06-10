@@ -1,11 +1,11 @@
-import { css, html, LitElement, nothing, TemplateResult, unsafeCSS } from 'lit';
+import { css, html, LitElement, nothing, type TemplateResult, unsafeCSS } from 'lit';
 import { map } from 'lit/directives/map.js';
 import { customElement, property } from 'lit/decorators.js';
-import languageColors from 'github-colors' with { type: 'json' };
+import languageColors from './colors.json' with { type: 'json' };
 
 import { forkIcon, licenseIcon, starIcon, tagIcon } from './icons.ts';
 
-const arrayEquals = function (oldVar: string[], newVar: string[]) {
+const arrayEquals = function(oldVar: string[], newVar: string[]) {
   if (!(Array.isArray(oldVar) && Array.isArray(newVar))) return false;
   if (oldVar.length !== newVar.length) return false;
 
@@ -15,8 +15,8 @@ const arrayEquals = function (oldVar: string[], newVar: string[]) {
   return true;
 };
 
-const languageColorElement = function (language: string): TemplateResult {
-  const colorCode = languageColors[language]?.color ?? '#808080';
+const languageColorElement = function(language: string): TemplateResult {
+  const colorCode = languageColors[language as keyof typeof languageColors]?.color ?? '#808080';
   const color = unsafeCSS(colorCode);
 
   return html`<span style="display: inline-block; width: 0.9em; height: 0.9em; vertical-align: middle; border-radius: 50%; background-color: ${color};"></span>`;
