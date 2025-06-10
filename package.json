@@ -16,7 +16,7 @@
     "github",
     "cards"
   ],
-  "main": "dist/ghCards.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc && vite build",
     "check": "biome check",
