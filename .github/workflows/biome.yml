@@ -1,0 +1,54 @@
+name: Check with Biome
+
+on: push
+
+jobs:
+  biome:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23.x
+          cache: 'pnpm'
+
+      - name: install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: check
+        run: pnpm check
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23.x
+          cache: 'pnpm'
+
+      - name: install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: check
+        run: pnpm build
