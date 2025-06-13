@@ -2,8 +2,8 @@ import { type TemplateResult, css, html } from "lit";
 
 export const avatarStyles = css`
   .avatar {
-    height: 3.5em;
-    border-radius: 4px;
+    height: var(--size-avatar);
+    border-radius: var(--radius);
   }
 `;
 
