@@ -65,17 +65,31 @@ See https://jsr.io/@tsukina-7mochi/github-cards.
 
 Attributes
 
-| attribute        | description                                                   |
-| ---------------- | ------------------------------------------------------------- |
-| `name`           | Repository name e.g. `Tsukina-7mochi/github-cards` (required) |
-| `no-avatar`      | Set true to hide user avatar                                  |
-| `no-fork-source` | Set true to hide fork source                                  |
-| `no-description` | Set true to hide repository description                       |
-| `no-stars`       | Set true to hide stars count                                  |
-| `no-forks`       | Set true to hide forks count                                  |
-| `no-license`     | Set true to hide license                                      |
-| `no-language`    | Set true to hide language                                     |
-| `no-topics`      | Set true to hide topics                                       |
+| Attribute        | Description                              |
+| ---------------- | ---------------------------------------- |
+| `name`           | Repository name (`owner/repo`, required) |
+| `no-avatar`      | Do not show avatar of repository owner   |
+| `no-fork-source` | Do not show fork source                  |
+| `no-description` | Do not show repository description       |
+| `no-stars`       | Do not show stars count                  |
+| `no-forks`       | Do not show forks count                  |
+| `no-license`     | Do not show license                      |
+| `no-language`    | Do not show language                     |
+| `no-topics`      | Do not show topics/tags                  |
+
+CSS Variables
+
+| Variable Name | Description |
+| --------------------------- | ------------------------------- |
+| `--color-background`        | Background color                |
+| `--color-background-hover`  | Background color when `:hover`  |
+| `--color-background-active` | Background color when `:active` |
+| `--color-text-primary`      | Primary text color              |
+| `--color-text-secondary`    | Secondary text color            |
+| `--color-text-link`         | Link text color                 |
+| `--color-border`            | Border color                    |
+| `--radius`                  | Border radius                   |
+| `--size-avatar`             | Avatar size                     |
 
 ## Thanks
 
