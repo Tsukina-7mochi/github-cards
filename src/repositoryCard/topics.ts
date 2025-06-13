@@ -2,8 +2,8 @@ import { type TemplateResult, css, html, nothing } from "lit";
 import { tagIcon } from "../icons.ts";
 
 export const topicsStyles = css`
-  .topics > span {
-    margin-right: 0.5em;
+  .topics > span+span {
+    margin-left: 0.5em;
   }
 `;
 

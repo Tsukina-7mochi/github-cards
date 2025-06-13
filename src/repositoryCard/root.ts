@@ -21,17 +21,27 @@ export const rootStyles = css`
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
 
-    --c-border: #c0c0c0;
-    --c-bg-hover: rgb(0 0 0 / 3%);
-    --c-bg-active: rgb(0 0 0 / 5%);
-    --c-fg: #404040;
-    --c-fg-2: #808080;
-    --c-link: #646cff;
+    --color-background: #ffffff;
+    --color-background-hover: #f0f0f0;
+    --color-background-active: #e0e0e0;
+    --color-text-primary: #404040;
+    --color-text-secondary: #808080;
+    --color-text-link: #646cff;
+    --color-border: #c0c0c0;
+
+    --radius: 4px;
+
+    --size-avatar: 3.5em;
   }
 
   @media (prefers-color-scheme: dark) {
     :host {
-      --c-fg: #D0D0D0;
+      --color-background: #202020;
+      --color-background-hover: #303030;
+      --color-background-active: #3a3a3a;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #808080;
+      --color-border: #303030;
     }
   }
 
@@ -39,30 +49,28 @@ export const rootStyles = css`
     width: 1em;
     height: 1em;
     vertical-align: middle;
-    fill: var(--c-fg);
+    fill: var(--color-text-primary);
   }
 
   .wrapper {
-    border: 1px solid var(--c-border);
-    border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 0.35em;
-
-    color: unset;
-    text-decoration: none;
-    color: var(--c-fg);
-    line-height: 1.5;
-    text-indent: 0;
-    overflow: hidden;
     padding: 1em 2em;
 
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    text-decoration: unset;
+    text-indent: 0;
+
     &:hover {
-      background-color: var(--c-bg-hover);
+      background-color: var(--color-background-hover);
     }
 
     &:active {
-      background-color: var(--c-bg-active);
+      background-color: var(--color-background-active);
     }
   }
 

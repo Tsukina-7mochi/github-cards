@@ -4,7 +4,7 @@ export const nameStyles = css`
   .repo-name {
     font-weight: bold;
     font-size: 1.2em;
-    color: var(--c-link);
+    color: var(--color-text-link);
   }
 `;
 

@@ -4,7 +4,11 @@ export const forkSourceStyles = css`
   .fork-source {
     margin: unset;
     font-size: 0.9em;
-    color: var(--c-fg-2);
+    color: var(--color-text-secondary);
+
+    a {
+      color: var(--color-text-link);
+    }
   }
 `;
 
