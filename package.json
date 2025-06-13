@@ -1,6 +1,6 @@
 {
   "name": "@tsukina-7mochi/github-cards",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Web Components implementation of cards for GitHub repositories",
   "author": "Mooncake Sugar",
   "license": "MIT",
