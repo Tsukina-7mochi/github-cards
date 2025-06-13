@@ -3,6 +3,7 @@ name: Publish
 on:
   push:
     tags: ["*"]
+  workflow_dispatch:
 
 jobs:
   publish-npm:
@@ -60,6 +61,10 @@ jobs:
       - name: Build
         run: |
           pnpm build
+
+      - name: Install JSR
+        run: |
+          pnpm install jsr -g
 
       - name: Publish
         run: |
