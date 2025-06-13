@@ -1,4 +1,4 @@
-import { type TemplateResult, css, html, type nothing } from "lit";
+import { type TemplateResult, css, html, nothing } from "lit";
 
 type OptionalTemplate = TemplateResult | typeof nothing;
 
@@ -81,6 +81,32 @@ export const rootStyles = css`
 `;
 
 export function renderRoot(init: RootInit) {
+  let statRow: TemplateResult | typeof nothing = nothing;
+  if (
+    init.language !== nothing ||
+    init.stars !== nothing ||
+    init.forks !== nothing ||
+    init.license !== nothing
+  ) {
+    statRow = html`
+      <div class="row">
+        ${init.language}
+        ${init.stars}
+        ${init.forks}
+        ${init.license}
+      </div>
+    `;
+  }
+
+  let topicsRow: TemplateResult | typeof nothing = init.topics;
+  if (init.topics !== nothing) {
+    topicsRow = html`
+      <div class="row">
+        ${init.topics}
+      </div>
+    `;
+  }
+
   return html`
     <a class="column wrapper" href="${init.url}">
       <div class="row">
@@ -91,15 +117,8 @@ export function renderRoot(init: RootInit) {
           ${init.description}
         </div>
       </div>
-      <div class="row">
-        ${init.language}
-        ${init.stars}
-        ${init.forks}
-        ${init.license}
-      </div>
-      <div class="row">
-        ${init.topics}
-      </div>
+      ${statRow}
+      ${topicsRow}
     </a>
   `;
 }
