@@ -1,5 +1,6 @@
-import { type TemplateResult, css, html, unsafeCSS } from "lit";
+import { type TemplateResult, css, html } from "lit";
 
+import { styleMap } from "lit/directives/style-map.js";
 import colorMap from "./languageColors.json" with { type: "json" };
 
 export const languageStyles = css`
@@ -15,10 +16,9 @@ export const languageStyles = css`
 const renderLanguageColor = function (language: string): TemplateResult {
   const colorCode =
     colorMap[language as keyof typeof colorMap]?.color ?? "#808080";
-  const color = unsafeCSS(colorCode);
 
   return html`
-    <span class="language-color" style="background-color: ${color};"></span>
+    <span class="language-color" style=${styleMap({ backgroundColor: colorCode })}></span>
   `;
 };
 
