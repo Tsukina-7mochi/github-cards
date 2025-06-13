@@ -76,6 +76,7 @@ export const rootStyles = css`
     display: flex;
     flex-direction: column;
     gap: 0.25em;
+    width: 100%;
   }
 `;
 
