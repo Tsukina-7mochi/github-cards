@@ -40,7 +40,7 @@ async function main() {
   }
 
   const options = {
-    entryPoints: [{ in: "./src/main.ts", out: "./main.js" }],
+    entryPoints: [{ in: "./src/main.ts", out: "main" }],
     bundle: true,
     outdir: "./dist",
     format: "esm",
