@@ -10,27 +10,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
 
   <script type="module" async src="https://esm.sh/@tsukina-7mochi/github-cards"></script>
+  <script async src="./main.js"></script>
   <style>
-    main {
+    html, body {
+      padding: 0;
+      margin: 0;
+
+      color: #404040;
+      background-color: #ffffff;
       line-height: 1.5;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+    }
+    
+    main {
       margin: 0 auto;
       max-width: 40em;
-      font-family: "Zen Kaku Gothic New", sans-serif;
+    }
+
+    label {
+      display: block;
+      user-select: none;
     }
 
     gh-repo-card {
       font-size: 0.8em;
     }
 
-    p.dark {
-      background-color: #404040;
-      color: #ffffff;
-      padding: 1em;
-      --gh-card-color-border: #808080;
-      --gh-card-color-background-hover: rgb(255, 255, 255 / 3%);
-      --gh-card-color-background-active: rgb(255, 255, 255 / 5%);
-      --gh-card-color-fg: #ffffff;
-      --gh-card-color-fg-2: #a0a0a0;
+    #repository-card-controller {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #repository-card-controller > label:first-child {
+      grid-column: 1 / -1;
+    }
+
+    @media(max-width: 600px) {
+      #repository-card-controller {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html, body {
+        color: #ffffff;
+        background-color: #202020;
+      }
     }
   </style>
 </head>
@@ -38,62 +63,56 @@
   <main>
     <h1>GitHub Cards Example</h1>
 
-    <h2>Repository Cards</h2>
+    <h2>Repository Card</h2>
 
-    <p>
-      Standard
-      <gh-repo-card name="Tsukina-7mochi/github-cards"></gh-repo-card>
-    </p>
+    <div id="repository-card-controller">
+      <label>
+        Repository Name
+        <input type="text" name="repo-name" placeholder="owner/repo" value="Tsukina-7mochi/github-cards">
+      </label>
 
-    <p>
-      No avatar
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-avatar></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-avatar">
+        No Avatar
+      </label>
 
-    <p>
-      No description
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-description></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-fork-source">
+        No Fork Source
+      </label>
 
-    <p>
-      No stars
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-stars></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-description">
+        No Description
+      </label>
 
-    <p>
-      No forks
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-forks></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-language">
+        No Language
+      </label>
 
-    <p>
-      No license
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-license></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-stars">
+        No Stars
+      </label>
 
-    <p>
-      No language
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-language></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-forks">
+        No Forks
+      </label>
 
-    <p>
-      No topics
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-topics></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-license">
+        No License
+      </label>
 
-    <p>
-      No stars, forks, license, language and topics (smart)
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-stars no-forks no-license no-language no-topics></gh-repo-card>
-    </p>
+      <label>
+        <input type="checkbox" name="no-topics">
+        No Topics
+      </label>
+    </div>
 
-    <p>
-      No avatar and topics (simple)
-      <gh-repo-card name="Tsukina-7mochi/github-cards" no-avatar no-topics></gh-repo-card>
-    </p>
-    
-    <p class="dark">
-      Dark mode
-      <gh-repo-card name="Tsukina-7mochi/github-cards"></gh-repo-card>
-    </p>
+    <gh-repo-card id="repository-card" name="Tsukina-7mochi/github-cards"></gh-repo-card>
   </main>
 </body>
 </html>
