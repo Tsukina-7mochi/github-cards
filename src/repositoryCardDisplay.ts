@@ -1,16 +1,21 @@
-import {
-  LitElement,
-  type TemplateResult,
-  css,
-  html,
-  nothing,
-  unsafeCSS,
-} from "lit";
+import { LitElement, css, html, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { map } from "lit/directives/map.js";
-import languageColors from "./colors.json" with { type: "json" };
 
-import { forkIcon, licenseIcon, starIcon, tagIcon } from "./icons.ts";
+import { avatarStyles, renderAvatar } from "./repositoryCard/avatar.ts";
+import { nameStyles, renderName } from "./repositoryCard/name.ts";
+import { renderForks } from "./repositoryCard/forks.ts";
+import {
+  forkSourceStyles,
+  renderForkSource,
+} from "./repositoryCard/forkSource.ts";
+import {
+  descriptionStyles,
+  renderDescription,
+} from "./repositoryCard/description.ts";
+import { languageStyles, renderLanguage } from "./repositoryCard/language.ts";
+import { renderStars } from "./repositoryCard/stars.ts";
+import { renderLicense } from "./repositoryCard/license.ts";
+import { renderTopics, topicsStyles } from "./repositoryCard/topics.ts";
 
 const arrayEquals = function (oldVar: string[], newVar: string[]) {
   if (!(Array.isArray(oldVar) && Array.isArray(newVar))) return false;
@@ -22,17 +27,16 @@ const arrayEquals = function (oldVar: string[], newVar: string[]) {
   return true;
 };
 
-const languageColorElement = function (language: string): TemplateResult {
-  const colorCode =
-    languageColors[language as keyof typeof languageColors]?.color ?? "#808080";
-  const color = unsafeCSS(colorCode);
-
-  return html`<span style="display: inline-block; width: 0.9em; height: 0.9em; vertical-align: middle; border-radius: 50%; background-color: ${color};"></span>`;
-};
-
 @customElement("gh-repo-card-display")
 export class RepositoryCardDisplay extends LitElement {
-  static styles = css`
+  static styles = [
+    avatarStyles,
+    nameStyles,
+    forkSourceStyles,
+    descriptionStyles,
+    languageStyles,
+    topicsStyles,
+    css`
     :host {
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
       margin: 0;
@@ -54,10 +58,6 @@ export class RepositoryCardDisplay extends LitElement {
       fill: var(--c-fg);
     }
 
-    a {
-      color: #646cff;
-    }
-
     a.wrapper {
       display: flex;
       flex-direction: column;
@@ -70,43 +70,19 @@ export class RepositoryCardDisplay extends LitElement {
       overflow: hidden;
     }
 
-    h2 {
-      margin: 0;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: var(--c-link);
-    }
-
-    header {
+    .row {
       display: flex;
+      gap: 1em;
       align-items: center;
-      gap: 1em;
     }
 
-    header+div {
+    .column {
       display: flex;
-      gap: 1em;
+      flex-direction: column;
+      gap: 0.25em;
     }
-
-    img.avatar {
-      height: 3.5em;
-      border-radius: 4px;
-    }
-
-    p.description {
-      margin: 0;
-      overflow-wrap: anywhere;
-    }
-
-    div.source {
-      font-size: 0.9em;
-      color: var(--c-fg-2);
-    }
-
-    div.topics > span {
-      margin-right: 0.5em;
-    }
-  `;
+  `,
+  ];
 
   @property({ type: String })
   accessor name = "";
@@ -153,59 +129,45 @@ export class RepositoryCardDisplay extends LitElement {
   accessor topics: string[] = [];
 
   render() {
-    const avatar =
-      this.avatarUrl !== null
-        ? html`<img class="avatar" src="${this.avatarUrl}" alt="${this.owner}">`
-        : nothing;
+    const avatar = this.avatarUrl
+      ? renderAvatar(this.avatarUrl, this.owner)
+      : nothing;
+    const repoName = renderName(this.name);
     const forkSource =
       this.forkSource !== null
-        ? html`<div class="source">fork from <a href="${this.forkSource.html_url}">${this.forkSource.full_name}</a></div>`
+        ? renderForkSource(this.forkSource.html_url, this.forkSource.full_name)
         : nothing;
     const description =
-      this.description !== null
-        ? html`<p class="description">${this.description}</p>`
-        : nothing;
+      this.description !== null ? renderDescription(this.description) : nothing;
     const language =
-      this.language !== null
-        ? html`<div class="language">${languageColorElement(this.language)} ${this.language}</div>`
-        : nothing;
-    const stars =
-      this.stars !== null
-        ? html`<div class="stars">${starIcon} ${this.stars}</div>`
-        : nothing;
-    const forks =
-      this.forks !== null
-        ? html`<div class="forks">${forkIcon} ${this.forks}</div>`
-        : nothing;
+      this.language !== null ? renderLanguage(this.language) : nothing;
+    const stars = this.stars !== null ? renderStars(this.stars) : nothing;
+    const forks = this.forks !== null ? renderForks(this.forks) : nothing;
     const license =
-      this.license !== null
-        ? html`<div class="license">${licenseIcon} ${this.license}</div>`
-        : nothing;
-    const topicSpans = html`${map(this.topics, (topic) => html`<span>${topic}</span>`)}`;
-    const topicIcon = this.topics.length > 0 ? tagIcon : nothing;
+      this.license !== null ? renderLicense(this.license) : nothing;
+    const topics = renderTopics(this.topics);
 
     // TODO: replace emojis in description
 
     return html`
       <gh-card-base intractable>
-        <a class="wrapper" href="${this.url}">
-          <header>
+        <a class="column wrapper" href="${this.url}">
+          <div class="row">
             ${avatar}
-            <div>
-              <h2>${this.name}</h2>
+            <div class="column">
+              ${repoName}
               ${forkSource}
               ${description}
             </div>
-          </header>
-          <div>
+          </div>
+          <div class="row">
             ${language}
             ${stars}
             ${forks}
             ${license}
           </div>
-          <div class="topics">
-            ${topicIcon}
-            ${topicSpans}
+          <div class="row">
+            ${topics}
           </div>
         </a>
       </gh-card-base>
