@@ -1,8 +1,6 @@
 import { Task } from "@lit/task";
 import { LitElement, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import { errorElement } from "../errorElement.ts";
 import { type GitHubRepository, getRepository } from "../lib/ghApi.ts";
 import {
   renderSkeleton,
@@ -106,6 +104,23 @@ export class RepositoryCard extends LitElement {
     });
   }
 
+  renderFallback() {
+    const repoName = renderName(this.name);
+
+    return renderRoot({
+      url: `https://github.com/${this.name}`,
+      avatar: nothing,
+      repoName,
+      forkSource: nothing,
+      description: nothing,
+      language: nothing,
+      stars: nothing,
+      forks: nothing,
+      license: nothing,
+      topics: nothing,
+    });
+  }
+
   renderRepository(repo: GitHubRepository) {
     const avatar =
       !this.noAvatar && repo.owner.avatar_url
@@ -150,10 +165,10 @@ export class RepositoryCard extends LitElement {
   render() {
     return this._fetchTask.render({
       pending: () => this.renderSkeleton(),
-      error: () => errorElement,
+      error: () => this.renderFallback(),
       complete: (repo) => {
         if (repo === null) {
-          return errorElement;
+          return this.renderFallback();
         }
 
         return this.renderRepository(repo);
