@@ -3,7 +3,6 @@ import { type TemplateResult, css, html } from "lit";
 export const descriptionStyles = css`
   .description {
     margin: unset;
-    overflow-wrap: anywhere;
   }
 `;
 

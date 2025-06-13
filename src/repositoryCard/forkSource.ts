@@ -5,6 +5,10 @@ export const forkSourceStyles = css`
     margin: unset;
     font-size: 0.9em;
     color: var(--color-text-secondary);
+
+    a {
+      color: var(--color-text-link);
+    }
   }
 `;
 
