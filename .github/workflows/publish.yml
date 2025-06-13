@@ -20,6 +20,7 @@ jobs:
       - uses: ./.github/actions/setup-pnpm
 
       - name: Check version
+        if: github.event_name != 'workflow_dispatch'
         run: |
           VERSION="$(cat package.json | jq -r '.version')"
           if [ "v$VERSION" != "${{ github.ref_name }}" ]; then
@@ -51,6 +52,7 @@ jobs:
       - uses: ./.github/actions/setup-pnpm
 
       - name: Check version
+        if: github.event_name != 'workflow_dispatch'
         run: |
           VERSION="$(cat jsr.json | jq -r '.version')"
           if [ "v$VERSION" != "${{ github.ref_name }}" ]; then
