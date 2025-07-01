@@ -58,6 +58,7 @@ export const rootStyles = css`
     gap: 0.35em;
     padding: 1em 2em;
 
+    background-color: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     color: var(--color-text-primary);
