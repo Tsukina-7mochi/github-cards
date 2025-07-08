@@ -18,12 +18,12 @@ const renderLanguageColor = function (language: string): TemplateResult {
     colorMap[language as keyof typeof colorMap]?.color ?? "#808080";
 
   return html`
-    <span class="language-color" style=${styleMap({ backgroundColor: colorCode })}></span>
+    <span class="language-color" part="language-color" style=${styleMap({ backgroundColor: colorCode })}></span>
   `;
 };
 
 export function renderLanguage(language: string): TemplateResult {
   return html`
-    <div class="language">${renderLanguageColor(language)} ${language}</div>
+    <div class="language" part="language">${renderLanguageColor(language)} ${language}</div>
   `;
 }

@@ -116,7 +116,7 @@ export function renderRoot(init: RootInit) {
   }
 
   return html`
-    <a class="column wrapper" href="${init.url}">
+    <a class="column wrapper" part="wrapper" href="${init.url}">
       <div class="row">
         ${init.avatar}
         <div class="column">

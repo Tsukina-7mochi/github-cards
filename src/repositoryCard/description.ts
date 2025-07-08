@@ -7,5 +7,5 @@ export const descriptionStyles = css`
 `;
 
 export function renderDescription(description: string): TemplateResult {
-  return html`<p class="description">${description}</p>`;
+  return html`<p class="description" part="description">${description}</p>`;
 }

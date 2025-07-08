@@ -9,7 +9,7 @@ export const topicsStyles = css`
 
 export function renderTopics(topics: string[]): TemplateResult {
   return html`
-    <div class="topics">
+    <div class="topics" part="topics">
       ${topics.length > 0 ? tagIcon : nothing}
       ${topics.map((v) => html`<span>${v}</span>`)}
     </div>

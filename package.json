@@ -12,10 +12,7 @@
   "bugs": {
     "url": "https://github.com/Tsukina-7mochi/github-cards/issues"
   },
-  "keywords": [
-    "github",
-    "cards"
-  ],
+  "keywords": ["github", "cards"],
   "type": "module",
   "main": "dist/main.js",
   "scripts": {
