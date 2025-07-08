@@ -9,5 +9,5 @@ export const nameStyles = css`
 `;
 
 export function renderName(name: string): TemplateResult {
-  return html`<div class="repo-name">${name}</div>`;
+  return html`<div class="repo-name" part="repo-name">${name}</div>`;
 }

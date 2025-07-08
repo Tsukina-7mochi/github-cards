@@ -14,6 +14,7 @@ export function renderAvatar(
   return html`
     <img
       class="avatar"
+      part="avatar"
       src="${imageUrl.toString()}"
       alt="Avatar of repository owner @${userName}"
     >

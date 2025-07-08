@@ -77,6 +77,20 @@ Attributes
 | `no-language`    | Do not show language                     |
 | `no-topics`      | Do not show topics/tags                  |
 
+[Parts](https://developer.mozilla.org/docs/Web/HTML/Reference/Global_attributes/part)
+
+- `avatar`
+- `description`
+- `forks`
+- `fork-source`
+- `wrapper`
+- `license`
+- `stars`
+- `language`
+- `language-color`
+- `repo-name`
+- `topics`
+
 CSS Variables
 
 | Variable Name | Description |

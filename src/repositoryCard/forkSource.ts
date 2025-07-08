@@ -17,7 +17,7 @@ export function renderForkSource(
   name: string
 ): TemplateResult {
   return html`
-    <p class="fork-source">
+    <p class="fork-source" part="fork-source">
       fork from <a href="${url.toString()}">${name}</a>
     </p>
   `;
